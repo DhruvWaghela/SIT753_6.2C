@@ -24,12 +24,16 @@ pipeline {
             steps {
                 echo "This is Security Scan stage"
             }
+        stage('Archive Log') {
+            steps {
+                archiveArtifacts artifacts: 'logfile.txt', onlyIfSuccessful: true
+            }
 post {
     success {
         mail to: "dhruvwaghela98@gmail.com",
         subject: "Security Scan Status",
         body: "Security Scan was successful"
-        attachLog: true
+        attachmentsPattern: 'logfile.txt'
           }
     failure {
         mail to: "dhruvwaghela98@gmail.com",

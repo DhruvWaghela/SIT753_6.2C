@@ -30,6 +30,7 @@ post {
         mail to: "dhruvwaghela98@gmail.com",
         subject: "Security Scan Status",
         body: "Security Scan was successful"
+        attachLog : true
           }
     failure {
         mail to: "dhruvwaghela98@gmail.com",

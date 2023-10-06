@@ -29,13 +29,7 @@ post {
     success {
         mail to: "dhruvwaghela98@gmail.com",
         subject: "Security Scan Status",
-        body: "Security Scan was successful" > generatedFile.txt
-        archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
-                
-            emailext attachLog: true, attachmentsPattern: 'generatedFile.txt',
-                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
-                recipientProviders: [developers(), requestor()],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+        body: "Security Scan was successful" 
       
           }
     failure {

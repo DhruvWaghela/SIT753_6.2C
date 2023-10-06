@@ -29,7 +29,7 @@ post {
     success {
         mail to: "dhruvwaghela98@gmail.com",
         subject: "Security Scan Status",
-        body: "Security Scan was successful"
+        body: "Security Scan was successful" > generatedFile.txt
         archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
                 
             emailext attachLog: true, attachmentsPattern: 'generatedFile.txt',
